@@ -12,7 +12,7 @@ double UI::AskForNumber()
 	{
 		// Asks for user Input.
 		std::string userInput;
-		std::cout << "Enter a number here (dont use commas): ";
+		std::cout << "\nEnter a number here (dont use commas): ";
 		std::cin >> userInput;
 
 
@@ -43,7 +43,7 @@ void UI::ShowOperations()
 	// Shows a list of options a user can choose from.
 	std::cout << "\n\n************** LIST OF OPERATIONS **************\n\n";
 
-	std::cout << "1 = + \n\n"; std::cout << "2 = -\n\n"; "3 = *\n\n"; std::cout << "4 = /\n\n"; //Atrihmitic operations.
+	std::cout << "1 = + \n\n"; std::cout << "2 = -\n\n"; std::cout << "3 = *\n\n"; std::cout << "4 = /\n\n"; //Atrihmitic operations.
 
 	// Exponential operations.
 	std::cout << "5 = Raise to power\n\n"; std::cout << "6 = Find the nth root\n\n"; std::cout << "7 = Square root\n\n"; std::cout << "8 = Cube Root\n\n";
@@ -64,7 +64,7 @@ int UI::GetOperation()
 	{
 		ShowOperations(); // calls the ShowOperations() method.
 
-		std::cout << "\nSelect an Operaiton: ";
+		std::cout << "\nSelect an Operation: ";
 		std::cin >> userInput;
 
 
@@ -106,6 +106,7 @@ void UI::Calculate(int operation, double num1)
 		double result = Operations::Sum(num1, num2); 
 
 		std::cout << "\n\n" << result << "\n\n";
+		break;
 
 	}
 	case 2:
@@ -115,6 +116,7 @@ void UI::Calculate(int operation, double num1)
 		double result = Operations::Subtract(num1, num2);
 
 		std::cout << "\n\n" << result << "\n\n";
+		break;
 	}
 	case 3:
 	{
@@ -123,6 +125,7 @@ void UI::Calculate(int operation, double num1)
 		double result = Operations::Multiply(num1, num2); 
 
 		std::cout << "\n\n" << result << "\n\n";
+		break;
 	}
 	case 4:
 	{
@@ -131,6 +134,7 @@ void UI::Calculate(int operation, double num1)
 		double result = Operations::Divide(num1, num2); 
 
 		std::cout << "\n\n" << result << "\n\n"; 
+		break;
 	}
 	case 5:
 	{
@@ -139,6 +143,7 @@ void UI::Calculate(int operation, double num1)
 		double result = Operations::Power(num1, num2); 
 
 		std::cout << "\n\n" << result << "\n\n";
+		break;
 	}
 	case 6:
 	{
@@ -147,30 +152,35 @@ void UI::Calculate(int operation, double num1)
 		double result = Operations::NthRoot(num1, num2);
 
 		std::cout << "\n\n" << result << "\n\n";
+		break;
 	}
 	case 7:
 	{
 		double result = Operations::SquareRoot(num1);
 
 		std::cout << "\n\n" << result << "\n\n";
+		break;
 	}
 	case 8:
 	{
 		double result = Operations::CubedRoot(num1); 
 
 		std::cout << "\n\n" << result << "\n\n";
+		break;
 	}
 	case 9:
 	{
 		double result = Operations::Squared(num1); 
 
 		std::cout << "\n\n" << result << "\n\n"; 
+		break;
 	}
 	case 10:
 	{
 		double result = Operations::Cubed(num1); 
 
-		std::cout << "\n\n" << result << "\n\n"; 
+		std::cout << "\n\n" << result << "\n\n";
+		break;
 	}
 	default:
 		break;

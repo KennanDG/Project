@@ -150,19 +150,27 @@ void UI::Calculate(int operation, double num1)
 	}
 	case 7:
 	{
+		double result = Operations::SquareRoot(num1);
 
+		std::cout << "\n\n" << result << "\n\n";
 	}
 	case 8:
 	{
+		double result = Operations::CubedRoot(num1); 
 
+		std::cout << "\n\n" << result << "\n\n";
 	}
 	case 9:
 	{
+		double result = Operations::Squared(num1); 
 
+		std::cout << "\n\n" << result << "\n\n"; 
 	}
 	case 10:
 	{
+		double result = Operations::Cubed(num1); 
 
+		std::cout << "\n\n" << result << "\n\n"; 
 	}
 	default:
 		break;

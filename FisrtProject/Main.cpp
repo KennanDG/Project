@@ -1,15 +1,24 @@
-#include <iostream>
-
+#include "Operations.h"
+#include "UI.h"
+#include "string"
 
 
 
 int main()
 {
+	std::cout << "Welcome to my C++ Calculator!\n\n\n"; // Greeting 
 
-	std::cout << "\nThis is a test commit.";
+	double userInputNumber = UI::AskForNumber();
 
-	std::cout << "\nThis is a test commit too.";
+	std::cout << "\n\n" << userInputNumber << std::endl;
 
+	int operation = UI::GetOperation();
+
+	std::cout << "\n\n" << operation << std::endl;
+
+	double secondUserInputNumber = UI::AskForNumber();
+
+	std::cout << "\n" << secondUserInputNumber << std::endl;
 
 	return 0;
 }

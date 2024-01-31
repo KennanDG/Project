@@ -10,11 +10,17 @@ double UI::AskForNumber()
 
 	do
 	{
+		std::cout << "\nType 'exit' to terminate the program.\n\n";
+		
 		// Asks for user Input.
 		std::string userInput;
 		std::cout << "\nEnter a number here (dont use commas): ";
 		std::cin >> userInput;
 
+		if (userInput == "exit")
+		{
+			return 0.000080085;
+		}
 
 		try
 		{
@@ -43,7 +49,8 @@ void UI::ShowOperations()
 	// Shows a list of options a user can choose from.
 	std::cout << "\n\n************** LIST OF OPERATIONS **************\n\n";
 
-	std::cout << "1 = + \n\n"; std::cout << "2 = -\n\n"; std::cout << "3 = *\n\n"; std::cout << "4 = /\n\n"; //Atrihmitic operations.
+	//Atrihmitic operations.
+	std::cout << "1 = + \n\n"; std::cout << "2 = -\n\n"; std::cout << "3 = *\n\n"; std::cout << "4 = /\n\n"; 
 
 	// Exponential operations.
 	std::cout << "5 = Raise to power\n\n"; std::cout << "6 = Find the nth root\n\n"; std::cout << "7 = Square root\n\n"; std::cout << "8 = Cube Root\n\n";
@@ -64,13 +71,14 @@ int UI::GetOperation()
 	{
 		ShowOperations(); // calls the ShowOperations() method.
 
-		std::cout << "\nSelect an Operation: ";
+		std::cout << "\nSelect an Operation: "; // Prompts the user to select the operation they'd like to perform.
 		std::cin >> userInput;
 
 
-		try
+		try // If the user input is valid.
 		{
-			if (std::stoi(userInput) <= 10 && std::stoi(userInput) >= 1)
+			// Converts userInput string into an int and checks if it is between 1-10 inclusive.
+			if (std::stoi(userInput) <= 10 && std::stoi(userInput) >= 1) 
 			{
 				selection = std::stoi(userInput);
 
@@ -78,15 +86,15 @@ int UI::GetOperation()
 
 				return selection;
 			}
-			else
+			else // If the number entered is not between 1-10.
 			{
 				std::cout << "\n\nInavalid selection. Please try again.\n\n";
 
 			}
 		}
-		catch (...)
+		catch (...) // If the user input is invalid.
 		{
-			std::cout << "\n\nInavalid selection. Please try again.\n\n";
+			std::cout << "\n\nInavalid selection. Please try again.\n\n"; 
 		}
 	} while (condition);
 
@@ -97,6 +105,9 @@ int UI::GetOperation()
 
 void UI::Calculate(int operation, double num1)
 {
+	// Performs the appropriate function based on the operation parameter.
+	// Then prints out the solution to the screen.
+	// Will ask the user for a second number if needed.
 	switch (operation)
 	{
 	case 1:
@@ -105,7 +116,7 @@ void UI::Calculate(int operation, double num1)
 
 		double result = Operations::Sum(num1, num2); 
 
-		std::cout << "\n\n" << result << "\n\n";
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 
 	}
@@ -115,7 +126,7 @@ void UI::Calculate(int operation, double num1)
 		
 		double result = Operations::Subtract(num1, num2);
 
-		std::cout << "\n\n" << result << "\n\n";
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
 	case 3:
@@ -124,7 +135,7 @@ void UI::Calculate(int operation, double num1)
 
 		double result = Operations::Multiply(num1, num2); 
 
-		std::cout << "\n\n" << result << "\n\n";
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
 	case 4:
@@ -133,7 +144,7 @@ void UI::Calculate(int operation, double num1)
 		
 		double result = Operations::Divide(num1, num2); 
 
-		std::cout << "\n\n" << result << "\n\n"; 
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
 	case 5:
@@ -142,7 +153,7 @@ void UI::Calculate(int operation, double num1)
 
 		double result = Operations::Power(num1, num2); 
 
-		std::cout << "\n\n" << result << "\n\n";
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
 	case 6:
@@ -151,38 +162,37 @@ void UI::Calculate(int operation, double num1)
 
 		double result = Operations::NthRoot(num1, num2);
 
-		std::cout << "\n\n" << result << "\n\n";
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
 	case 7:
 	{
 		double result = Operations::SquareRoot(num1);
 
-		std::cout << "\n\n" << result << "\n\n";
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
 	case 8:
 	{
 		double result = Operations::CubedRoot(num1); 
 
-		std::cout << "\n\n" << result << "\n\n";
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
 	case 9:
 	{
 		double result = Operations::Squared(num1); 
 
-		std::cout << "\n\n" << result << "\n\n"; 
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
 	case 10:
 	{
 		double result = Operations::Cubed(num1); 
 
-		std::cout << "\n\n" << result << "\n\n";
+		std::cout << "\n\nSolution:\t\t" << result << "\n\n";
 		break;
 	}
-	default:
-		break;
+
 	}
 }
